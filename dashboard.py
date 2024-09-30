@@ -1,7 +1,9 @@
 import pandas as pd
+import requests
+import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-import streamlit as st
+
 
 # Load the data 
 day_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/day.csv'
