@@ -24,4 +24,5 @@ Pastikan menginstal semua Library yang diperlukan sebelum menjalankan proyek ini
 `pip install -r requirements.txt`
 3. Jalankan aplikasi Streamlit:
 `streamlit run dashboard.py`
-
+4. Opsi lainnya yaitu dengan membuka link streamlit.io berikut
+'https://tugas-bangkitbike-sharing-dataset-fp5ccdxvzifjsdykxsjxyh.streamlit.app`
