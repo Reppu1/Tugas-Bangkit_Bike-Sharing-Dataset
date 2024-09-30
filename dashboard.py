@@ -8,8 +8,15 @@ day_data = pd.read_csv('day.csv')
 hour_data = pd.read_csv('hour.csv')
 main_data = pd.read_csv('main_data.csv')
 
+# Menambahkan logo Dicoding
+st.image("https://help.dicoding.com/wp-content/uploads/2021/01/dicoding-edit-1024x341.jpg", use_column_width=True)
+
 # Judul aplikasi Streamlit
-st.title('Dashboard Penyewaan Sepeda - Revan Azriel Langa Aditya - ML67')
+st.title('Dashboard Penyewaan Sepeda')
+
+# Menambahkan nama dan copyright
+st.markdown("### Revan Azriel Langa Aditya")
+st.markdown("© Dicoding 2024")
 
 # Sidebar untuk memilih visualisasi
 st.sidebar.header('Visualisasi')
