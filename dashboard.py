@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # URL untuk file CSV
-day_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/day.csv'
-hour_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/hour.csv'
-main_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/main_data.csv'
+day_data_url = "day.csv"
+hour_data_url = 'hour.csv'
+main_data_url = 'main_data.csv'
 
 # Mengunduh dan membaca data
 try:
