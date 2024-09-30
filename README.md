@@ -8,7 +8,7 @@ Proyek ini bertujuan untuk menganalisis dataset penyewaan sepeda menggunakan ber
 - Analisis penyewaan berdasarkan hari dalam seminggu.
 - Tren penyewaan berdasarkan jam.
 
-## Teknologi yang Digunakan
+## Library yang Digunakan
 - Python
 - Pandas
 - Matplotlib
