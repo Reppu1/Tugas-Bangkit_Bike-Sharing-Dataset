@@ -1,13 +1,12 @@
 import pandas as pd
-import requests
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# URL untuk file CSV
-day_data = "day.csv"
-hour_data = 'hour.csv'
-main_data = 'main_data.csv'
+# Memuat data CSV
+day_data = pd.read_csv('day.csv')
+hour_data = pd.read_csv('hour.csv')
+main_data = pd.read_csv('main_data.csv')
 
 # Judul aplikasi Streamlit
 st.title('Dashboard Penyewaan Sepeda')
