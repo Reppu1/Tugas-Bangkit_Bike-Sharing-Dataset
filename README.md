@@ -21,7 +21,7 @@ Pastikan menginstal semua Library yang diperlukan sebelum menjalankan proyek ini
 ## Cara Menjalankan Aplikasi
 1. Clone repositori ini atau unduh zip.
 2. Instal dependensi dengan perintah berikut:
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 3. Jalankan aplikasi Streamlit:
-streamlit run dashboard.py
+`streamlit run dashboard.py`
 
