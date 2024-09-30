@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Memuat data CSV
-day_data = pd.read_csv('/mnt/data/day.csv')
-hour_data = pd.read_csv('/mnt/data/hour.csv')
+day_data = pd.read_csv('day.csv')
+hour_data = pd.read_csv('hour.csv')
 
 # Menambahkan logo Dicoding
 st.image("https://help.dicoding.com/wp-content/uploads/2021/01/dicoding-edit-1024x341.jpg", use_column_width=True)
