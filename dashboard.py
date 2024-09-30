@@ -3,17 +3,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-# Menambahkan logo perusahaan
-st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
-
 # Load the data 
 day_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/day.csv'
 hour_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/hour.csv'
-day_data = pd.read_csv(day_data_url)
-hour_data = pd.read_csv(hour_data_url)
+main_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/main_data.csv'
 
-# Merge day_data and hour_data (if applicable)
-main_data = pd.merge(day_data, hour_data, on='dteday', how='inner')
+# Mengunduh dan membaca data
+day_data = pd.read_csv(requests.get(day_data_url).content.decode('utf-8'))
+hour_data = pd.read_csv(requests.get(hour_data_url).content.decode('utf-8'))
+main_data = pd.read_csv(requests.get(main_data_url).content.decode('utf-8'))
 
 # Title of the dashboard
 st.title('Dashboard Penyewaan Sepeda')
