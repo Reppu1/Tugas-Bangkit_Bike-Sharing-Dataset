@@ -1,16 +1,17 @@
+# Import library
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Memuat data CSV
+# Load data CSV
 day_data = pd.read_csv('day.csv')
 hour_data = pd.read_csv('hour.csv')
 
 # Menambahkan logo Dicoding
 st.image("https://help.dicoding.com/wp-content/uploads/2021/01/dicoding-edit-1024x341.jpg", use_column_width=True)
 
-# Menambahkan styling agar semua teks berada di tengah
+# Styling agar semua teks berada di center
 st.markdown(
     """
     <style>
@@ -38,7 +39,7 @@ st.markdown('<h1 class="center-text">Dashboard Penyewaan Sepeda</h1>', unsafe_al
 
 # Sidebar untuk memilih visualisasi
 st.sidebar.header('Visualisasi')
-option = st.sidebar.selectbox('Pilih visualisasi:', (
+option = st.sidebar.selectbox('Pilih visualisasi :', (
     'Perbandingan Sewa Sepeda Antara Hari Kerja dan Akhir Pekan', 
     'Distribusi Penyewaan Sepeda di Sepanjang Hari', 
     'Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda'))
@@ -103,11 +104,11 @@ elif option == 'Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda':
         unsafe_allow_html=True
     )
 
-# Menambahkan footer dengan nama dan copyright di bagian bawah
+# Menambahkan nama pembuat dan copyright
 st.markdown(
     """
     <footer>
-        <p>Revan Azriel Langa Aditya - ML67</p>
+        <p>Revan Azriel Langa Aditya - ML 67</p>
         <p>© Dicoding 2024</p>
     </footer>
     """, 
