@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Memuat data CSV
-day_data = pd.read_csv('day.csv')
-hour_data = pd.read_csv('hour.csv')
+day_data = pd.read_csv('/mnt/data/day.csv')
+hour_data = pd.read_csv('/mnt/data/hour.csv')
 
 # Menambahkan logo Dicoding
 st.image("https://help.dicoding.com/wp-content/uploads/2021/01/dicoding-edit-1024x341.jpg", use_column_width=True)
@@ -20,41 +20,41 @@ st.markdown("© Dicoding 2024")
 # Sidebar untuk memilih visualisasi
 st.sidebar.header('Visualisasi')
 option = st.sidebar.selectbox('Pilih visualisasi:', (
-    'Distribusi Penyewaan Sepeda Sepanjang Hari', 
-    'Perbedaan Penyewaan Sepeda Antara Hari Kerja dan Akhir Pekan', 
-    'Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda'))
+    'Perbandingan Sewa Sepeda Antara Hari Kerja dan Akhir Pekan', 
+    'Distribusi Penyewaan Sepeda di Sepanjang Hari', 
+    'Penyewaan Sepeda Berdasarkan Hari dalam Seminggu'))
 
 # Menampilkan visualisasi sesuai pilihan
-if option == 'Distribusi Penyewaan Sepeda Sepanjang Hari':
-    st.header('Distribusi Penyewaan Sepeda Sepanjang Hari')
-    fig, ax = plt.subplots()
+if option == 'Perbandingan Sewa Sepeda Antara Hari Kerja dan Akhir Pekan':
+    st.header('Penyewaan Sepeda di Hari Kerja vs Akhir Pekan')
+    sns.set(style="whitegrid")
     
-    # Memastikan kolom 'cnt' ada
-    if 'cnt' in hour_data.columns:
-        sns.histplot(hour_data['cnt'], bins=30, kde=True, ax=ax, color='cyan')
-        ax.set_title('Distribusi Total Penyewaan Sepeda Sepanjang Hari')
-    else:
-        st.error("Kolom 'cnt' tidak ditemukan dalam hour_data.")
-    
+    fig, ax = plt.subplots(figsize=(6, 4))
+    sns.boxplot(x="workingday", y="cnt", data=day_data, ax=ax)
+    ax.set_title("Penyewaan Sepeda di Hari Kerja vs Akhir Pekan")
+    ax.set_xlabel("Hari Kerja (1 = Yes, 0 = No)")
+    ax.set_ylabel("Total Penyewaan Sepeda")
     st.pyplot(fig)
 
-elif option == 'Perbedaan Penyewaan Sepeda Antara Hari Kerja dan Akhir Pekan':
-    st.header('Perbedaan Penyewaan Sepeda Antara Hari Kerja dan Akhir Pekan')
+elif option == 'Distribusi Penyewaan Sepeda di Sepanjang Hari':
+    st.header('Distribusi Penyewaan Sepeda Berdasarkan Jam')
     
-    # Mengkategorikan data berdasarkan hari kerja dan akhir pekan
-    day_data['is_weekend'] = day_data['weekday'].apply(lambda x: 'Akhir Pekan' if x in [0, 6] else 'Hari Kerja')
-    
-    fig, ax = plt.subplots()
-    sns.barplot(x='is_weekend', y='cnt', data=day_data, ax=ax, palette='dark')
-    ax.set_title('Rata-rata Penyewaan Sepeda Antara Hari Kerja dan Akhir Pekan')
+    fig, ax = plt.subplots(figsize=(8, 4))
+    sns.lineplot(x="hr", y="cnt", data=hour_data, ci=None, ax=ax)
+    ax.set_title("Distribusi Penyewaan Sepeda Berdasarkan Jam")
+    ax.set_xlabel("Jam")
+    ax.set_ylabel("Total Penyewaan Sepeda")
+    ax.set_xticks(range(0, 24))
     st.pyplot(fig)
 
-elif option == 'Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda':
-    st.header('Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda')
+elif option == 'Penyewaan Sepeda Berdasarkan Hari dalam Seminggu':
+    st.header('Penyewaan Sepeda Berdasarkan Hari dalam Seminggu')
     
-    fig, ax = plt.subplots()
-    sns.lineplot(x='hr', y='cnt', hue='weekday', data=hour_data, palette='coolwarm', ax=ax)
-    ax.set_title('Jumlah Penyewaan Berdasarkan Hari dalam Seminggu dan Jam')
+    fig, ax = plt.subplots(figsize=(8, 4))
+    sns.boxplot(x="weekday", y="cnt", data=day_data, ax=ax)
+    ax.set_title("Penyewaan Sepeda Berdasarkan Hari dalam Seminggu")
+    ax.set_xlabel("Hari dalam Seminggu (0 = Minggu, 1 = Senin, 2 = Selasa, ..., 6 = Sabtu)")
+    ax.set_ylabel("Total Penyewaan Sepeda")
     st.pyplot(fig)
 
 # Menambahkan warna background dashboard
