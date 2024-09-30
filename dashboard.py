@@ -7,8 +7,10 @@ import streamlit as st
 st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
 
 # Load the data 
-day_data = pd.read_csv('day_data.csv')
-hour_data = pd.read_csv('hour_data.csv')
+day_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/day.csv'
+hour_data_url = 'https://raw.githubusercontent.com/Reppu1/Tugas-Bangkit_Bike-Sharing-Dataset/main/hour.csv'
+day_data = pd.read_csv(day_data_url)
+hour_data = pd.read_csv(hour_data_url)
 
 # Merge day_data and hour_data (if applicable)
 main_data = pd.merge(day_data, hour_data, on='dteday', how='inner')
