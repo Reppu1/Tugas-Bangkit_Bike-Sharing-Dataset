@@ -14,6 +14,12 @@ try:
     day_data = pd.read_csv(requests.get(day_data_url).content.decode('utf-8'))
     hour_data = pd.read_csv(requests.get(hour_data_url).content.decode('utf-8'))
     main_data = pd.read_csv(requests.get(main_data_url).content.decode('utf-8'))
+
+    # Menampilkan nama kolom untuk memeriksa
+    st.write("Kolom dalam day_data:", day_data.columns.tolist())
+    st.write("Data dari day_data:")
+    st.dataframe(day_data.head())  # Tampilkan beberapa baris data
+
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
@@ -28,8 +34,14 @@ option = st.sidebar.selectbox('Pilih visualisasi:', ('Distribusi Penyewaan Seped
 if option == 'Distribusi Penyewaan Sepeda':
     st.header('Distribusi Penyewaan Sepeda')
     fig, ax = plt.subplots()
-    sns.histplot(day_data['cnt'], bins=30, kde=True, ax=ax)
-    ax.set_title('Distribusi Total Penyewaan Sepeda')
+    
+    # Pastikan kolom 'cnt' ada
+    if 'cnt' in day_data.columns:
+        sns.histplot(day_data['cnt'], bins=30, kde=True, ax=ax)
+        ax.set_title('Distribusi Total Penyewaan Sepeda')
+    else:
+        st.error("Kolom 'cnt' tidak ditemukan dalam day_data.")
+    
     st.pyplot(fig)
 
 elif option == 'Jumlah Penyewaan Berdasarkan Hari':
@@ -45,6 +57,3 @@ elif option == 'Jumlah Penyewaan Berdasarkan Jam':
     sns.lineplot(x='hr', y='cnt', data=hour_data, ax=ax)
     ax.set_title('Jumlah Penyewaan Berdasarkan Jam')
     st.pyplot(fig)
-
-# Menampilkan data
-st.dataframe(day_data.head())  # Tampilkan beberapa baris data
