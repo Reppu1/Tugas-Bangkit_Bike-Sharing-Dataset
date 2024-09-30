@@ -9,7 +9,7 @@ hour_data = pd.read_csv('hour.csv')
 main_data = pd.read_csv('main_data.csv')
 
 # Judul aplikasi Streamlit
-st.title('Dashboard Penyewaan Sepeda')
+st.title('Dashboard Penyewaan Sepeda - Revan Azriel Langa Aditya - ML67')
 
 # Sidebar untuk memilih visualisasi
 st.sidebar.header('Visualisasi')
