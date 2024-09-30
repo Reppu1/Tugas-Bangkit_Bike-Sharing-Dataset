@@ -58,8 +58,6 @@ if option == 'Perbandingan Sewa Sepeda Antara Hari Kerja dan Akhir Pekan':
     st.markdown(
         """
         <div class="center-text">
-        **Perbandingan Penyewaan Sepeda antara Hari Kerja dan Akhir Pekan:**
-        
         Grafik boxplot menunjukkan bahwa jumlah penyewaan sepeda cenderung lebih tinggi pada hari kerja dibandingkan akhir pekan. Hal ini bisa disebabkan oleh pengguna yang menggunakan sepeda sebagai sarana transportasi untuk bekerja.
         </div>
         """, 
@@ -80,8 +78,6 @@ elif option == 'Distribusi Penyewaan Sepeda di Sepanjang Hari':
     st.markdown(
         """
         <div class="center-text">
-        **Distribusi Penyewaan Sepeda di Sepanjang Hari:**
-        
         Grafik line plot menunjukkan tren penyewaan sepeda per jam. Terdapat dua puncak penyewaan utama: pagi sekitar pukul 8-9 (mungkin karena orang pergi bekerja) dan sore sekitar pukul 17-18 (kemungkinan karena pulang kerja).
         </div>
         """, 
@@ -101,8 +97,6 @@ elif option == 'Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda':
     st.markdown(
         """
         <div class="center-text">
-        **Pengaruh Hari dalam Seminggu terhadap Jumlah Penyewaan Sepeda:**
-        
         Grafik boxplot menunjukkan distribusi penyewaan berdasarkan hari dalam seminggu. Hari kerja (terutama hari Senin hingga Jumat) cenderung memiliki lebih banyak penyewaan sepeda dibandingkan akhir pekan, yang menegaskan pola serupa dengan analisis hari kerja.
         </div>
         """, 
