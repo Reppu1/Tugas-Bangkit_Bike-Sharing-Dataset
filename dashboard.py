@@ -5,23 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # URL untuk file CSV
-day_data_url = "day.csv"
-hour_data_url = 'hour.csv'
-main_data_url = 'main_data.csv'
-
-# Mengunduh dan membaca data
-try:
-    day_data = pd.read_csv(requests.get(day_data_url).content.decode('utf-8'))
-    hour_data = pd.read_csv(requests.get(hour_data_url).content.decode('utf-8'))
-    main_data = pd.read_csv(requests.get(main_data_url).content.decode('utf-8'))
-
-    # Menampilkan nama kolom untuk memeriksa
-    st.write("Kolom dalam day_data:", day_data.columns.tolist())
-    st.write("Data dari day_data:")
-    st.dataframe(day_data.head())  # Tampilkan beberapa baris data
-
-except Exception as e:
-    st.error(f"Error loading data: {e}")
+day_data = "day.csv"
+hour_data = 'hour.csv'
+main_data = 'main_data.csv'
 
 # Judul aplikasi Streamlit
 st.title('Dashboard Penyewaan Sepeda')
